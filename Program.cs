@@ -345,7 +345,7 @@ namespace Doxy2MD
 						sr.WriteLine("| --- | --- | --- |");
 						foreach (Compound prop in pubCTORs)
 						{
-							sr.WriteLine("| [[/images/method.jpg]] | `{0} {1} {2}` | _{3}_",
+							sr.WriteLine("| method | `{0} {1} {2}` | _{3}_",
 										 prop.type, prop.FullName?.Trim(), prop.argsstring, prop.shortDesc?.Trim());
 						}
 
@@ -354,14 +354,14 @@ namespace Doxy2MD
                         sr.WriteLine("| --- | --- | --- |");
                         foreach (Compound cp in pubProperties.OrderBy(mbb => mbb.FullName))
                         {
-                            sr.WriteLine("| [[/images/property.jpg]] | `{0}` | _{1}_ |", cp.FullName?.Trim(), cp.shortDesc?.Trim());
+                            sr.WriteLine("| property | `{0}` | _{1}_ |", cp.FullName?.Trim(), cp.shortDesc?.Trim());
                         }
                         sr.WriteLine("#### Methods\n");
 						sr.WriteLine("| :white_large_square: | prototype | description |");
 						sr.WriteLine("| --- | --- | --- |");
                         foreach (Compound cp in pubMethods.OrderBy(mbb => mbb.FullName))
                         {
-                            sr.WriteLine("| [[/images/method.jpg]] | `{0} {1}{2}` | _{3}_ |",
+                            sr.WriteLine("| method | `{0} {1}{2}` | _{3}_ |",
                                          cp.type, cp.FullName?.Trim(), cp.argsstring, cp.shortDesc?.Trim());                            
 						}
 						sr.WriteLine("#### Events\n");
@@ -369,14 +369,14 @@ namespace Doxy2MD
 						sr.WriteLine("| --- | --- | --- |");
                         foreach (Compound cp in pubEvents.OrderBy(mbb => mbb.FullName))
 						{
-							sr.WriteLine("| [[/images/event.jpg]] | `{0}` | _{1}_ |", cp.FullName?.Trim(), cp.shortDesc?.Trim());
+							sr.WriteLine("| event | `{0}` | _{1}_ |", cp.FullName?.Trim(), cp.shortDesc?.Trim());
 						}
                     }
 				}
 
 			}
 			
-            using (Stream os = new FileStream(Path.Combine(output, "index.md"), FileMode.Create))
+            using (Stream os = new FileStream(Path.Combine(output, "Home.md"), FileMode.Create))
 			{
 				using (StreamWriter sr = new StreamWriter(os))
 				{
